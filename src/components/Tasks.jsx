@@ -1,4 +1,5 @@
 import PropType from "prop-types";
+import { Link } from "react-router-dom";
 
 const Tasks = ({ tasks }) => {
     return (
@@ -10,6 +11,7 @@ const Tasks = ({ tasks }) => {
                             <th>Id</th>
                             <th>Titulo</th>
                             <th>Completado</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,6 +21,9 @@ const Tasks = ({ tasks }) => {
                                     <td>{ task.id }</td>
                                     <td>{ task.title }</td>
                                     <td>{ task.completed ? "Si" : "No" }</td>
+                                    <td>
+                                        <Link to={`/tasks/edit/${task.id}`}>Editar</Link>
+                                    </td>
                                 </tr>
                             );
                         })}
